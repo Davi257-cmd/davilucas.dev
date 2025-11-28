@@ -3,161 +3,281 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+
+// Importar imagens
+import fluxQaImg from "../public/saas/flux-qa.png";
+import raizesImg from "../public/saas/Site - Raizes Cearenses.png";
+import plusSimImg from "../public/saas/Site - Plus Sim.png";
+import studiowImg from "../public/siteComAgendamento/studiow-site.png";
+import beautySalonImg from "../public/saas/BeautySallon - site.png";
+import leadfinderImg from "../public/saas/leadfinder-Site.jpg";
+import jrGestaoImg from "../public/landingpages/site - JR Gestão.png";
+import emrImg from "../public/siteComAgendamento/Site - EMR.png";
+import luizNetoImg from "../public/siteComAgendamento/luizneto-corretor.png";
+import dimmyImg from "../public/landingpages/studiodimmy-lp.png";
+import softHausImg from "../public/landingpages/SoftHaus-lp.png";
+import wpTrafegoImg from "../public/landingpages/walterpaz-lp.png";
+import draSirlyanneImg from "../public/landingpages/dra-sirlyanne.png";
+import liderCommerceImg from "../public/landingpages/lidercommerce-lp.png";
+import jorginhoImg from "../public/landingpages/jorginho-lp.png";
+import nuttroImg from "../public/aplicativos/nuttro.png";
 
 const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Todos");
 
   const filters = [
-    "All",
-    "Frontend",
-    "Backend",
-    "AI/Agents",
-    "Booking Systems",
+    "Todos",
+    "SaaS",
+    "Landing Pages",
+    "Sites com Agendamento",
     "E-commerce",
     "Mobile",
   ];
 
   const projects = [
     {
-      title: "Raízes Cearenses",
-      category: "Frontend",
-      company: "Colmeia Tech",
+      title: "FluxQA",
+      category: "SaaS",
+      company: "Projeto Próprio",
+      status: "Em Desenvolvimento",
       description:
-        "Cultural heritage platform showcasing Ceará's rich traditions, built with React and modern animations",
-      tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+        "SaaS com IA para navegação e geração de código Cypress para testes de QA",
+      tags: ["React", "TypeScript", "Node.js", "IA"],
       gradient: "from-electric-blue to-neon-purple",
       year: "2024",
+      image: fluxQaImg,
+      link: "https://fluxqa.vercel.app/",
     },
     {
-      title: "Tercia Platform",
-      category: "Full-Stack",
-      company: "Colmeia Tech",
+      title: "Raízes Cearenses",
+      category: "SaaS",
+      company: "Colmeia Tecnologia",
+      status: "Concluído",
       description:
-        "Enterprise resource management platform with real-time collaboration features",
-      tags: ["React Native", "Python", "PostgreSQL", "WebSocket"],
+        "Plataforma de e-commerce para produtos orgânicos locais do Ceará. Conecta produtores locais com consumidores.",
+      tags: ["React", "Node.js", "MongoDB"],
       gradient: "from-vibrant-cyan to-electric-blue",
       year: "2024",
+      image: raizesImg,
+      link: "https://raizescearenses.com.br/vitrine",
     },
     {
-      title: "AI Booking Assistant",
-      category: "AI/Agents",
+      title: "PlusSim",
+      category: "E-commerce",
+      company: "Simples Inovação",
+      status: "Concluído",
       description:
-        "Intelligent scheduling system using LangChain for natural language booking",
-      tags: ["Python", "LangChain", "OpenAI", "FastAPI"],
+        "Site para empresa de telecomunicações com e-commerce personalizado para chips de viagem internacional",
+      tags: ["Shopify", "Liquid", "JavaScript"],
       gradient: "from-neon-purple to-electric-pink",
       year: "2024",
+      image: plusSimImg,
+      link: "https://plussim.com/",
     },
     {
-      title: "Clinic Scheduling System",
-      category: "Booking Systems",
+      title: "Studio W",
+      category: "Sites com Agendamento",
+      company: "Freelance",
+      status: "Concluído",
       description:
-        "Complete appointment management for healthcare with SMS notifications",
-      tags: ["React", "Node.js", "MongoDB", "Twilio"],
-      gradient: "from-neon-green to-vibrant-cyan",
-      year: "2023",
-    },
-    {
-      title: "Barbershop Scheduler",
-      category: "Booking Systems",
-      description:
-        "Mobile-first booking platform for barbershops with real-time availability",
-      tags: ["React Native", "Firebase", "Stripe"],
+        "Landing page para salão de beleza com foco em agendamentos e serviços de beleza",
+      tags: ["HTML", "CSS", "JavaScript"],
       gradient: "from-electric-pink to-neon-purple",
-      year: "2023",
+      year: "2024",
+      image: studiowImg,
+      link: "https://studiow.com.br/home",
     },
     {
-      title: "E-commerce Platform",
-      category: "E-commerce",
-      description: "High-converting Shopify store with custom theme and 6-figure revenue",
-      tags: ["Shopify", "Liquid", "JavaScript", "CSS"],
+      title: "Beauty Salon IA Solutions Pro",
+      category: "SaaS",
+      company: "Projeto Próprio",
+      status: "Concluído",
+      description:
+        "Sistema mobile-first para salões com foco em agendamento e fidelização de clientes",
+      tags: ["React", "TypeScript", "Tailwind CSS"],
+      gradient: "from-neon-green to-vibrant-cyan",
+      year: "2024",
+      image: beautySalonImg,
+      link: "https://beauty-aura-connect.lovable.app/auth",
+    },
+    {
+      title: "LeadFinder",
+      category: "SaaS",
+      company: "Projeto Próprio",
+      status: "Concluído",
+      description:
+        "SaaS para encontrar e qualificar leads automaticamente através do Google Maps",
+      tags: ["React", "Node.js", "MongoDB"],
       gradient: "from-electric-blue to-vibrant-cyan",
-      year: "2023",
+      year: "2024",
+      image: leadfinderImg,
+      link: "https://leadsaasbr.vercel.app/",
     },
     {
-      title: "Landing Page Generator",
-      category: "Frontend",
-      description: "AI-powered landing page creator with drag-and-drop interface",
-      tags: ["React", "Tailwind", "Shadcn UI", "Magic UI"],
+      title: "JR Gestão",
+      category: "Landing Pages",
+      company: "Simples Inovação",
+      status: "Concluído",
+      description:
+        "Site institucional para empresa de gestão empresarial com foco em consultoria e serviços contábeis",
+      tags: ["WordPress", "Elementor", "PHP"],
+      gradient: "from-vibrant-cyan to-neon-green",
+      year: "2024",
+      image: jrGestaoImg,
+      link: "https://jrgestao.com/",
+    },
+    {
+      title: "EMR Advisory",
+      category: "Sites com Agendamento",
+      company: "Simples Inovação",
+      status: "Concluído",
+      description:
+        "Site para empresa de consultoria em estruturação de empresas nos Emirados Árabes Unidos",
+      tags: ["WordPress", "Elementor", "PHP"],
+      gradient: "from-electric-blue to-neon-purple",
+      year: "2024",
+      image: emrImg,
+      link: "https://emradvisoryco.com/",
+    },
+    {
+      title: "Luiz Neto Corretor",
+      category: "Sites com Agendamento",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Plataforma premium para corretor de imóveis com sistema de agendamento e catálogo de propriedades",
+      tags: ["React", "TypeScript", "Node.js"],
       gradient: "from-neon-purple to-electric-blue",
       year: "2024",
+      image: luizNetoImg,
+      link: "https://luiznetocorretor.vercel.app/",
     },
     {
-      title: "QA Automation Suite",
-      category: "Testing",
-      description: "Comprehensive testing framework with Cypress for e-commerce sites",
-      tags: ["Cypress", "TypeScript", "CI/CD"],
-      gradient: "from-vibrant-cyan to-neon-green",
-      year: "2023",
-    },
-    {
-      title: "WordPress Multisite",
-      category: "Backend",
-      description: "Custom WordPress multisite with advanced ACF and custom post types",
-      tags: ["WordPress", "PHP", "MySQL", "ACF"],
-      gradient: "from-electric-blue to-neon-purple",
-      year: "2022",
-    },
-    {
-      title: "React Native Fitness App",
-      category: "Mobile",
-      description: "Cross-platform fitness tracking app with workout plans",
-      tags: ["React Native", "Expo", "Firebase", "Stripe"],
+      title: "Dimmy Studio",
+      category: "Landing Pages",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Landing page moderna para estúdio de design e desenvolvimento",
+      tags: ["React", "TypeScript", "Tailwind"],
       gradient: "from-electric-pink to-vibrant-cyan",
       year: "2024",
+      image: dimmyImg,
+      link: "https://mstudiodimmy.vercel.app/",
     },
     {
-      title: "AI Customer Support Bot",
-      category: "AI/Agents",
-      description: "Multi-platform chatbot with context-aware responses using LangGraph",
-      tags: ["Python", "LangGraph", "OpenAI", "Discord API"],
-      gradient: "from-neon-purple to-electric-blue",
-      year: "2024",
-    },
-    {
-      title: "Admin Dashboard",
-      category: "Frontend",
-      description: "Real-time analytics dashboard with beautiful data visualizations",
-      tags: ["React", "Recharts", "Tailwind", "WebSocket"],
+      title: "Gelateria Soft Haus",
+      category: "Landing Pages",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Landing page para gelateria com design moderno e responsivo",
+      tags: ["React", "TypeScript", "Tailwind"],
       gradient: "from-vibrant-cyan to-electric-blue",
-      year: "2023",
+      year: "2024",
+      image: softHausImg,
+      link: "https://softhausbr.vercel.app/",
+    },
+    {
+      title: "WP do Tráfego",
+      category: "Landing Pages",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Landing page para especialista em tráfego pago e marketing digital",
+      tags: ["WordPress", "Elementor", "PHP"],
+      gradient: "from-neon-green to-vibrant-cyan",
+      year: "2024",
+      image: wpTrafegoImg,
+      link: "https://www.wpdotrafego.com.br/",
+    },
+    {
+      title: "Dra. Sirlyanne",
+      category: "Landing Pages",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Landing page profissional para clínica médica com foco em agendamentos",
+      tags: ["React", "TypeScript", "Tailwind"],
+      gradient: "from-electric-blue to-neon-purple",
+      year: "2024",
+      image: draSirlyanneImg,
+      link: "https://drasirlyannesantos.vercel.app/",
+    },
+    {
+      title: "Lider Commerce",
+      category: "Landing Pages",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Landing page para plataforma de e-commerce e soluções digitais",
+      tags: ["React", "TypeScript", "Tailwind"],
+      gradient: "from-neon-purple to-electric-pink",
+      year: "2024",
+      image: liderCommerceImg,
+      link: "https://lidercommerce.vercel.app/",
+    },
+    {
+      title: "Jorginho - Faturando em Dólar",
+      category: "Landing Pages",
+      company: "Freelance",
+      status: "Concluído",
+      description:
+        "Landing page para curso e mentorias sobre faturar em dólar",
+      tags: ["WordPress", "Elementor", "PHP"],
+      gradient: "from-electric-pink to-neon-purple",
+      year: "2024",
+      image: jorginhoImg,
+      link: "https://www.faturandoemdolar.com.br/",
+    },
+    {
+      title: "Nuttro",
+      category: "Mobile",
+      company: "Projeto Próprio",
+      status: "Concluído",
+      description:
+        "Aplicativo React Native para gestão nutricional e acompanhamento de dieta",
+      tags: ["React Native", "TypeScript", "Node.js"],
+      gradient: "from-vibrant-cyan to-electric-blue",
+      year: "2024",
+      image: nuttroImg,
+      link: "https://frontend-nuttro-web.vercel.app/login",
     },
   ];
 
   const filteredProjects =
-    activeFilter === "All"
+    activeFilter === "Todos"
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
   return (
     <div className="min-h-screen bg-background">
-
-      <section className="pt-32 pb-20">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Project <span className="text-gradient-primary">Portfolio</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+              Meus <span className="text-gradient-primary">Projetos</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Solutions that transform businesses. Over 100 projects delivered with
-              excellence.
+            <p className="text-sm md:text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              Uma seleção dos meus trabalhos mais recentes e significativos, demonstrando diferentes tecnologias e abordagens de desenvolvimento.
             </p>
           </motion.div>
 
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12">
             {filters.map((filter) => (
               <Button
                 key={filter}
                 variant={activeFilter === filter ? "default" : "outline"}
                 onClick={() => setActiveFilter(filter)}
-                className={
+                className={`text-xs md:text-sm ${
                   activeFilter === filter ? "bg-gradient-primary border-0" : ""
-                }
+                }`}
               >
                 {filter}
               </Button>
@@ -165,7 +285,7 @@ const Portfolio = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -175,48 +295,57 @@ const Portfolio = () => {
                 layout
               >
                 <Card className="overflow-hidden glass border-border hover:border-primary transition-all group h-full flex flex-col">
-                  <div
-                    className={`h-48 bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between`}
-                  >
-                    <div className="flex justify-between items-start">
+                  <div className="relative h-40 md:h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute top-2 md:top-4 left-2 md:left-4 right-2 md:right-4 flex justify-between items-start gap-2">
                       {project.company && (
-                        <Badge className="bg-background/20 backdrop-blur-sm">
+                        <Badge className="bg-background/80 backdrop-blur-sm text-xs">
                           {project.company}
                         </Badge>
                       )}
                       <Badge
                         variant="outline"
-                        className="bg-background/20 backdrop-blur-sm border-white/20"
+                        className={`bg-background/80 backdrop-blur-sm border-white/20 text-xs ${
+                          project.status === "Em Desenvolvimento"
+                            ? "border-yellow-500 text-yellow-500"
+                            : "border-green-500 text-green-500"
+                        }`}
                       >
-                        {project.year}
+                        {project.status}
                       </Badge>
                     </div>
-                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Button
                         size="sm"
                         variant="secondary"
-                        className="bg-background/20 backdrop-blur-sm hover:bg-background/30"
+                        className="bg-background/80 backdrop-blur-sm hover:bg-background/90 text-xs"
+                        asChild
                       >
-                        <ExternalLink className="w-4 h-4" />
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="secondary"
-                        className="bg-background/20 backdrop-blur-sm hover:bg-background/30"
-                      >
-                        <Github className="w-4 h-4" />
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                          <span className="hidden md:inline">Visitar</span>
+                        </a>
                       </Button>
                     </div>
                   </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <Badge variant="outline" className="w-fit mb-3 text-xs">
+                  <div className="p-4 md:p-6 flex-1 flex flex-col">
+                    <Badge variant="outline" className="w-fit mb-2 md:mb-3 text-xs">
                       {project.category}
                     </Badge>
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4 flex-1">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4 flex-1">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {project.tags.map((tag) => (
                         <Badge key={tag} variant="secondary" className="text-xs">
                           {tag}
@@ -228,98 +357,6 @@ const Portfolio = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Case Studies Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-20"
-          >
-            <h2 className="text-4xl font-bold text-center mb-12">
-              Featured <span className="text-gradient-secondary">Case Studies</span>
-            </h2>
-            <div className="space-y-8">
-              {[
-                {
-                  title: "Raízes Cearenses",
-                  challenge: "Create an engaging platform to showcase cultural heritage",
-                  solution:
-                    "Built immersive React experience with smooth animations and CMS integration",
-                  results: [
-                    "50k+ monthly visitors",
-                    "95% user satisfaction",
-                    "Featured in local media",
-                  ],
-                  tech: ["React", "TypeScript", "Tailwind", "Strapi"],
-                },
-                {
-                  title: "AI Booking System",
-                  challenge: "Reduce no-shows and automate appointment scheduling",
-                  solution:
-                    "Implemented AI-powered assistant with natural language processing",
-                  results: [
-                    "40% reduction in no-shows",
-                    "85% automation rate",
-                    "2 hours saved daily",
-                  ],
-                  tech: ["Python", "LangChain", "OpenAI", "FastAPI"],
-                },
-              ].map((study, index) => (
-                <Card
-                  key={index}
-                  className="p-8 glass border-primary/30 hover:border-primary transition-all"
-                >
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4">{study.title}</h3>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="text-sm font-semibold text-primary mb-1">
-                            Challenge
-                          </p>
-                          <p className="text-muted-foreground">{study.challenge}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-primary mb-1">
-                            Solution
-                          </p>
-                          <p className="text-muted-foreground">{study.solution}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="mb-6">
-                        <p className="text-sm font-semibold text-primary mb-3">
-                          Results
-                        </p>
-                        <ul className="space-y-2">
-                          {study.results.map((result, i) => (
-                            <li key={i} className="flex items-center gap-2">
-                              <div className="w-2 h-2 rounded-full bg-neon-green" />
-                              <span className="text-muted-foreground">{result}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-primary mb-3">
-                          Technologies
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {study.tech.map((tech) => (
-                            <Badge key={tech} variant="secondary">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>

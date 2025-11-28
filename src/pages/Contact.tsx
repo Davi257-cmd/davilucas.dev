@@ -25,271 +25,360 @@ import { useToast } from "@/hooks/use-toast";
 const Contact = () => {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("project");
+  const whatsappNumber = "5585996827671";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const sendToWhatsApp = (message: string) => {
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
     toast({
-      title: "Message Sent!",
-      description: "I'll get back to you within 24 hours.",
+      title: "Redirecionando para WhatsApp!",
+      description: "Você será redirecionado para iniciar a conversa.",
     });
+  };
+
+  const handleProjectSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const company = formData.get("company") as string;
+    const projectType = formData.get("project-type") as string;
+    const budget = formData.get("budget") as string;
+    const description = formData.get("description") as string;
+
+    const message = `Olá! Gostaria de solicitar um orçamento para projeto:
+
+👤 Nome: ${name}
+📧 Email: ${email}
+🏢 Empresa: ${company || "Não informado"}
+📋 Tipo de Projeto: ${projectType || "Não informado"}
+💰 Orçamento: ${budget || "Não informado"}
+
+📝 Descrição:
+${description}`;
+
+    sendToWhatsApp(message);
+    e.currentTarget.reset();
+  };
+
+  const handleRecruiterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("recruiter-name") as string;
+    const email = formData.get("recruiter-email") as string;
+    const company = formData.get("company-name") as string;
+    const position = formData.get("position") as string;
+    const techStack = formData.get("tech-stack") as string;
+    const salary = formData.get("salary") as string;
+    const jobDescription = formData.get("job-description") as string;
+
+    const message = `Olá! Sou recrutador e gostaria de apresentar uma oportunidade:
+
+👤 Nome: ${name}
+📧 Email: ${email}
+🏢 Empresa: ${company}
+💼 Cargo: ${position}
+🛠️ Stack Tecnológico: ${techStack}
+💰 Faixa Salarial: ${salary || "Não informado"}
+
+📝 Descrição da Vaga:
+${jobDescription}`;
+
+    sendToWhatsApp(message);
+    e.currentTarget.reset();
+  };
+
+  const handleGeneralSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("general-name") as string;
+    const email = formData.get("general-email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
+
+    const whatsappMessage = `Olá! Gostaria de entrar em contato:
+
+👤 Nome: ${name}
+📧 Email: ${email}
+📌 Assunto: ${subject || "Geral"}
+
+💬 Mensagem:
+${message}`;
+
+    sendToWhatsApp(whatsappMessage);
+    e.currentTarget.reset();
   };
 
   const faqs = [
     {
-      question: "How much does a project cost?",
+      question: "Quanto custa um projeto?",
       answer:
-        "Project costs vary based on scope and complexity. Booking systems start from $5,000, AI solutions from $4,000, and landing pages from $1,500. Contact me for a custom quote.",
+        "Os custos dos projetos variam com base no escopo e complexidade. Sistemas de agendamento a partir de R$ 3.000, soluções de IA a partir de R$ 5.000, e landing pages a partir de R$ 800. Entre em contato para um orçamento personalizado.",
     },
     {
-      question: "Do you work remotely?",
+      question: "Você trabalha remotamente?",
       answer:
-        "Yes! I work primarily remote but can accommodate hybrid arrangements for local clients. I'm experienced in collaborating with distributed teams globally.",
+        "Sim! Trabalho principalmente de forma remota, mas posso acomodar arranjos híbridos para clientes locais. Tenho experiência em colaborar com equipes distribuídas globalmente.",
     },
     {
-      question: "What's the minimum delivery time?",
+      question: "Qual é o tempo mínimo de entrega?",
       answer:
-        "Simple landing pages can be delivered in 1-2 weeks. More complex projects like booking systems typically take 4-8 weeks. Rush delivery is available for urgent projects.",
+        "Landing pages simples podem ser entregues em 1-2 semanas. Projetos mais complexos como sistemas de agendamento geralmente levam 4-8 semanas. Entrega urgente está disponível para projetos urgentes.",
     },
     {
-      question: "Do you offer support after launch?",
+      question: "Você oferece suporte após o lançamento?",
       answer:
-        "Yes! All projects include initial support period. Ongoing maintenance packages are available starting from $500/month with bug fixes, updates, and feature additions.",
+        "Sim! Todos os projetos incluem período de suporte inicial. Pacotes de manutenção contínua estão disponíveis a partir de R$ 1.500/mês com correções de bugs, atualizações e adições de recursos.",
     },
     {
-      question: "What's your work process?",
+      question: "Qual é seu processo de trabalho?",
       answer:
-        "I follow a 7-step process: Discovery → Proposal → Planning → Development → Testing → Deployment → Support. You'll receive regular updates and previews throughout.",
+        "Sigo um processo de 7 etapas: Descoberta → Proposta → Planejamento → Desenvolvimento → Testes → Deploy → Suporte. Você receberá atualizações regulares e prévias durante todo o processo.",
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
-
-      <section className="pt-32 pb-20">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Let's <span className="text-gradient-primary">Connect</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+              Vamos <span className="text-gradient-primary">Conectar</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Whether you're a client with a project or a recruiter with an opportunity,
-              I'd love to hear from you.
+            <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              Seja você um cliente com um projeto ou um recrutador com uma oportunidade, adoraria ouvir de você.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             {/* Contact Forms */}
             <div className="lg:col-span-2">
-              <Card className="p-8 glass border-border">
+              <Card className="p-4 md:p-8 glass border-border">
                 <Tabs value={activeTab} onValueChange={setActiveTab}>
-                  <TabsList className="grid w-full grid-cols-3 mb-8">
-                    <TabsTrigger value="project">Project</TabsTrigger>
-                    <TabsTrigger value="recruiter">Recruiter</TabsTrigger>
-                    <TabsTrigger value="general">General</TabsTrigger>
+                  <TabsList className="grid w-full grid-cols-3 mb-6 md:mb-8 text-xs md:text-sm">
+                    <TabsTrigger value="project">Projeto</TabsTrigger>
+                    <TabsTrigger value="recruiter">Recrutador</TabsTrigger>
+                    <TabsTrigger value="general">Geral</TabsTrigger>
                   </TabsList>
 
                   {/* Project Form */}
                   <TabsContent value="project">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
+                    <form onSubmit={handleProjectSubmit} className="space-y-4 md:space-y-6">
+                      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="name">Full Name</Label>
-                          <Input id="name" placeholder="John Doe" required />
+                          <Label htmlFor="name" className="text-sm">Nome Completo</Label>
+                          <Input id="name" name="name" placeholder="João Silva" required className="text-sm md:text-base" />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="email">Email</Label>
+                          <Label htmlFor="email" className="text-sm">Email</Label>
                           <Input
                             id="email"
+                            name="email"
                             type="email"
-                            placeholder="john@example.com"
+                            placeholder="joao@exemplo.com"
                             required
+                            className="text-sm md:text-base"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="company">Company/Project Name</Label>
-                        <Input id="company" placeholder="Acme Inc." />
+                        <Label htmlFor="company" className="text-sm">Nome da Empresa/Projeto</Label>
+                        <Input id="company" name="company" placeholder="Empresa XYZ" className="text-sm md:text-base" />
                       </div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="project-type">Project Type</Label>
-                          <Select>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select type" />
+                          <Label htmlFor="project-type" className="text-sm">Tipo de Projeto</Label>
+                          <Select name="project-type">
+                            <SelectTrigger className="text-sm md:text-base">
+                              <SelectValue placeholder="Selecione o tipo" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="web">Web Application</SelectItem>
-                              <SelectItem value="mobile">Mobile App</SelectItem>
-                              <SelectItem value="ai">AI/ML Solution</SelectItem>
-                              <SelectItem value="booking">Booking System</SelectItem>
+                              <SelectItem value="web">Aplicação Web</SelectItem>
+                              <SelectItem value="mobile">App Mobile</SelectItem>
+                              <SelectItem value="ai">Solução IA/ML</SelectItem>
+                              <SelectItem value="booking">Sistema de Agendamento</SelectItem>
                               <SelectItem value="ecommerce">E-commerce</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
+                              <SelectItem value="other">Outro</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="budget">Budget Range</Label>
-                          <Select>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select range" />
+                          <Label htmlFor="budget" className="text-sm">Faixa de Orçamento</Label>
+                          <Select name="budget">
+                            <SelectTrigger className="text-sm md:text-base">
+                              <SelectValue placeholder="Selecione a faixa" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="1k-5k">$1k - $5k</SelectItem>
-                              <SelectItem value="5k-10k">$5k - $10k</SelectItem>
-                              <SelectItem value="10k-25k">$10k - $25k</SelectItem>
-                              <SelectItem value="25k+">$25k+</SelectItem>
+                              <SelectItem value="5k-10k">R$ 5k - R$ 10k</SelectItem>
+                              <SelectItem value="10k-25k">R$ 10k - R$ 25k</SelectItem>
+                              <SelectItem value="25k-50k">R$ 25k - R$ 50k</SelectItem>
+                              <SelectItem value="50k+">R$ 50k+</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="description">Project Description</Label>
+                        <Label htmlFor="description" className="text-sm">Descrição do Projeto</Label>
                         <Textarea
                           id="description"
-                          placeholder="Tell me about your project..."
+                          name="description"
+                          placeholder="Conte-me sobre seu projeto..."
                           rows={5}
                           required
+                          className="text-sm md:text-base"
                         />
                       </div>
 
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full bg-gradient-primary border-0"
+                        className="w-full bg-gradient-primary border-0 text-sm md:text-base"
                       >
-                        Request Quote
+                        Enviar para WhatsApp
                       </Button>
                     </form>
                   </TabsContent>
 
                   {/* Recruiter Form */}
                   <TabsContent value="recruiter">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
+                    <form onSubmit={handleRecruiterSubmit} className="space-y-4 md:space-y-6">
+                      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="recruiter-name">Your Name</Label>
-                          <Input id="recruiter-name" placeholder="Jane Smith" required />
+                          <Label htmlFor="recruiter-name" className="text-sm">Seu Nome</Label>
+                          <Input id="recruiter-name" name="recruiter-name" placeholder="Maria Santos" required className="text-sm md:text-base" />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="recruiter-email">Email</Label>
+                          <Label htmlFor="recruiter-email" className="text-sm">Email</Label>
                           <Input
                             id="recruiter-email"
+                            name="recruiter-email"
                             type="email"
-                            placeholder="jane@company.com"
+                            placeholder="maria@empresa.com"
                             required
+                            className="text-sm md:text-base"
                           />
                         </div>
                       </div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="company-name">Company</Label>
-                          <Input id="company-name" placeholder="Tech Corp" required />
+                          <Label htmlFor="company-name" className="text-sm">Empresa</Label>
+                          <Input id="company-name" name="company-name" placeholder="Tech Corp" required className="text-sm md:text-base" />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="position">Position</Label>
+                          <Label htmlFor="position" className="text-sm">Cargo</Label>
                           <Input
                             id="position"
-                            placeholder="Senior Full-Stack Developer"
+                            name="position"
+                            placeholder="Desenvolvedor Full-Stack Sênior"
                             required
+                            className="text-sm md:text-base"
                           />
                         </div>
                       </div>
 
-                      <div className="grid md:grid-cols-2 gap-4">
+                      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="tech-stack">Required Tech Stack</Label>
+                          <Label htmlFor="tech-stack" className="text-sm">Stack Tecnológico Necessário</Label>
                           <Input
                             id="tech-stack"
-                            placeholder="React, Python, AI/ML"
+                            name="tech-stack"
+                            placeholder="React, Python, IA/ML"
                             required
+                            className="text-sm md:text-base"
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="salary">Salary Range</Label>
-                          <Input id="salary" placeholder="$80k - $120k" />
+                          <Label htmlFor="salary" className="text-sm">Faixa Salarial</Label>
+                          <Input id="salary" name="salary" placeholder="R$ 80k - R$ 120k" className="text-sm md:text-base" />
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="job-description">Job Description</Label>
+                        <Label htmlFor="job-description" className="text-sm">Descrição da Vaga</Label>
                         <Textarea
                           id="job-description"
-                          placeholder="Tell me about the role..."
+                          name="job-description"
+                          placeholder="Conte-me sobre a vaga..."
                           rows={5}
                           required
+                          className="text-sm md:text-base"
                         />
                       </div>
 
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full bg-gradient-secondary border-0"
+                        className="w-full bg-gradient-secondary border-0 text-sm md:text-base"
                       >
-                        Send Opportunity
+                        Enviar para WhatsApp
                       </Button>
                     </form>
                   </TabsContent>
 
                   {/* General Form */}
                   <TabsContent value="general">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-4">
+                    <form onSubmit={handleGeneralSubmit} className="space-y-4 md:space-y-6">
+                      <div className="grid md:grid-cols-2 gap-3 md:gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="general-name">Name</Label>
-                          <Input id="general-name" placeholder="Your name" required />
+                          <Label htmlFor="general-name" className="text-sm">Nome</Label>
+                          <Input id="general-name" name="general-name" placeholder="Seu nome" required className="text-sm md:text-base" />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="general-email">Email</Label>
+                          <Label htmlFor="general-email" className="text-sm">Email</Label>
                           <Input
                             id="general-email"
+                            name="general-email"
                             type="email"
-                            placeholder="your@email.com"
+                            placeholder="seu@email.com"
                             required
+                            className="text-sm md:text-base"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="subject">Subject</Label>
-                        <Select>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select subject" />
+                        <Label htmlFor="subject" className="text-sm">Assunto</Label>
+                        <Select name="subject">
+                          <SelectTrigger className="text-sm md:text-base">
+                            <SelectValue placeholder="Selecione o assunto" />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="consultation">
-                              Technical Consultation
+                              Consultoria Técnica
                             </SelectItem>
                             <SelectItem value="collaboration">
-                              Collaboration Opportunity
+                              Oportunidade de Colaboração
                             </SelectItem>
                             <SelectItem value="speaking">
-                              Speaking/Teaching
+                              Palestra/Ensino
                             </SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                            <SelectItem value="other">Outro</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="message">Message</Label>
+                        <Label htmlFor="message" className="text-sm">Mensagem</Label>
                         <Textarea
                           id="message"
-                          placeholder="Your message..."
+                          name="message"
+                          placeholder="Sua mensagem..."
                           rows={6}
                           required
+                          className="text-sm md:text-base"
                         />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full" variant="outline">
-                        Send Message
+                      <Button type="submit" size="lg" className="w-full text-sm md:text-base" variant="outline">
+                        Enviar para WhatsApp
                       </Button>
                     </form>
                   </TabsContent>
@@ -298,20 +387,20 @@ const Contact = () => {
             </div>
 
             {/* Contact Info Sidebar */}
-            <div className="space-y-6">
-              <Card className="p-6 glass border-primary/30">
-                <h3 className="font-bold text-lg mb-4">Contact Information</h3>
-                <div className="space-y-4">
+            <div className="space-y-4 md:space-y-6">
+              <Card className="p-4 md:p-6 glass border-primary/30">
+                <h3 className="font-bold text-base md:text-lg mb-3 md:mb-4">Informações de Contato</h3>
+                <div className="space-y-3 md:space-y-4">
                   <a
                     href="mailto:contact@davilucas.dev"
-                    className="flex items-center gap-3 text-sm hover:text-primary transition-colors"
+                    className="flex items-center gap-2 md:gap-3 text-xs md:text-sm hover:text-primary transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-primary" />
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">contact@davilucas.dev</p>
+                      <p className="text-muted-foreground text-xs md:text-sm">contact@davilucas.dev</p>
                     </div>
                   </a>
 
@@ -319,14 +408,14 @@ const Contact = () => {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm hover:text-primary transition-colors"
+                    className="flex items-center gap-2 md:gap-3 text-xs md:text-sm hover:text-primary transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Linkedin className="w-5 h-5 text-primary" />
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Linkedin className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                     </div>
                     <div>
                       <p className="font-medium">LinkedIn</p>
-                      <p className="text-muted-foreground">Connect with me</p>
+                      <p className="text-muted-foreground text-xs md:text-sm">Conecte-se comigo</p>
                     </div>
                   </a>
 
@@ -334,39 +423,39 @@ const Contact = () => {
                     href="https://github.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm hover:text-primary transition-colors"
+                    className="flex items-center gap-2 md:gap-3 text-xs md:text-sm hover:text-primary transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Github className="w-5 h-5 text-primary" />
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Github className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                     </div>
                     <div>
                       <p className="font-medium">GitHub</p>
-                      <p className="text-muted-foreground">View my code</p>
+                      <p className="text-muted-foreground text-xs md:text-sm">Veja meu código</p>
                     </div>
                   </a>
                 </div>
               </Card>
 
-              <Card className="p-6 glass border-border">
+              <Card className="p-4 md:p-6 glass border-border">
                 <div className="flex items-center gap-2 mb-2">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <h3 className="font-bold">Response Time</h3>
+                  <Clock className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                  <h3 className="font-bold text-sm md:text-base">Tempo de Resposta</h3>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  Typically within 24 hours during business days
+                <p className="text-xs md:text-sm text-muted-foreground">
+                  Geralmente em até 24 horas durante dias úteis
                 </p>
               </Card>
 
-              <Card className="p-6 glass border-border">
+              <Card className="p-4 md:p-6 glass border-border">
                 <div className="flex items-center gap-2 mb-2">
-                  <MessageSquare className="w-5 h-5 text-primary" />
-                  <h3 className="font-bold">Availability</h3>
+                  <MessageSquare className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                  <h3 className="font-bold text-sm md:text-base">Disponibilidade</h3>
                 </div>
-                <p className="text-sm text-muted-foreground mb-2">Open to new projects</p>
+                <p className="text-xs md:text-sm text-muted-foreground mb-2">Aberto a novos projetos</p>
                 <div className="flex gap-2">
                   <span className="w-2 h-2 rounded-full bg-neon-green mt-1.5" />
-                  <span className="text-sm text-muted-foreground">
-                    Currently accepting freelance work
+                  <span className="text-xs md:text-sm text-muted-foreground">
+                    Atualmente aceitando trabalhos freelance
                   </span>
                 </div>
               </Card>
@@ -379,17 +468,17 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Frequently Asked <span className="text-gradient-primary">Questions</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+              Perguntas <span className="text-gradient-primary">Frequentes</span>
             </h2>
-            <Card className="p-8 glass border-border max-w-3xl mx-auto">
+            <Card className="p-4 md:p-8 glass border-border max-w-3xl mx-auto">
               <Accordion type="single" collapsible>
                 {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left">
+                    <AccordionTrigger className="text-left text-sm md:text-base">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-muted-foreground text-sm md:text-base">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

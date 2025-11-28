@@ -6,55 +6,62 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Rocket, Calendar, Bot, Star, Zap, Shield } from "lucide-react";
 
 const Services = () => {
+  const whatsappNumber = "5585996827671";
+
+  const sendToWhatsApp = (message: string) => {
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+  };
+
   const mainServices = [
     {
       icon: Rocket,
-      title: "Full-Stack Development",
-      description: "Complete web & mobile solutions from concept to deployment",
+      title: "Desenvolvimento Full-Stack",
+      description: "Soluções web e mobile completas do conceito à implantação",
       includes: [
-        "React/React Native Frontend",
-        "Python/Node.js Backend",
-        "Database Design & Optimization",
-        "API Development & Integration",
-        "Deployment & DevOps Setup",
-        "Automated Testing Suite",
+        "Frontend React/React Native",
+        "Backend Python/Node.js",
+        "Design e Otimização de Banco de Dados",
+        "Desenvolvimento e Integração de APIs",
+        "Configuração de Deploy e DevOps",
+        "Suite de Testes Automatizados",
       ],
-      price: "Custom Quote",
-      timeline: "2-12 weeks",
+      price: "Orçamento Personalizado",
+      timeline: "2-12 semanas",
       gradient: "from-electric-blue to-neon-purple",
     },
     {
       icon: Calendar,
-      title: "Booking Systems",
-      description: "Specialized scheduling solutions for clinics, salons & services",
+      title: "Sistemas de Agendamento",
+      description: "Soluções especializadas de agendamento para clínicas, salões e serviços",
       includes: [
-        "Smart Scheduling Engine",
-        "SMS/Email Notifications",
-        "Payment Integration",
-        "Admin Dashboard",
-        "Mobile App for Clients",
-        "Analytics & Reporting",
-        "24/7 Support (initial period)",
+        "Motor de Agendamento Inteligente",
+        "Notificações SMS/Email",
+        "Integração de Pagamento",
+        "Painel Administrativo",
+        "App Mobile para Clientes",
+        "Analytics e Relatórios",
+        "Suporte 24/7 (período inicial)",
       ],
-      price: "From $5,000",
-      timeline: "4-8 weeks",
+      price: "A partir de R$ 3.000",
+      timeline: "4-8 semanas",
       gradient: "from-neon-green to-vibrant-cyan",
       featured: true,
     },
     {
       icon: Bot,
-      title: "AI Agents & Chatbots",
-      description: "Intelligent automation with LangChain/LangGraph",
+      title: "Agentes IA & Chatbots",
+      description: "Automação inteligente com LangChain/LangGraph",
       includes: [
-        "Custom AI Agent Development",
-        "Natural Language Processing",
-        "Data Integration & RAG",
-        "Multi-Platform Support",
-        "Conversation Analytics",
-        "Continuous Learning Setup",
+        "Desenvolvimento de Agentes IA Personalizados",
+        "Processamento de Linguagem Natural",
+        "Integração de Dados e RAG",
+        "Suporte Multi-Plataforma",
+        "Analytics de Conversação",
+        "Configuração de Aprendizado Contínuo",
       ],
-      price: "From $4,000",
-      timeline: "2-6 weeks",
+      price: "A partir de R$ 5.000",
+      timeline: "2-6 semanas",
       gradient: "from-electric-pink to-neon-purple",
     },
   ];
@@ -62,61 +69,67 @@ const Services = () => {
   const addOnServices = [
     {
       name: "Landing Pages",
-      description: "High-converting React landing pages",
-      price: "From $1,500",
+      description: "Landing pages React de alta conversão",
+      price: "R$ 800",
+      whatsappMessage: "Olá! Gostaria de saber mais sobre o serviço de Landing Pages (R$ 800).",
     },
     {
-      name: "E-commerce Setup",
-      description: "Shopify/WordPress store configuration",
-      price: "From $2,000",
+      name: "Configuração de E-commerce",
+      description: "Configuração de loja Shopify/WordPress",
+      price: "R$ 2.500",
+      whatsappMessage: "Olá! Gostaria de saber mais sobre o serviço de Configuração de E-commerce (R$ 2.500).",
     },
     {
-      name: "QA Automation",
-      description: "Cypress testing suite implementation",
-      price: "$100/hour",
+      name: "Automação de QA",
+      description: "Implementação de suite de testes Cypress",
+      price: "R$ 100/hora",
+      whatsappMessage: "Olá! Gostaria de saber mais sobre o serviço de Automação de QA (R$ 100/hora).",
     },
     {
-      name: "Technical Consulting",
-      description: "Architecture review & optimization",
-      price: "$120/hour",
+      name: "Consultoria Técnica",
+      description: "Revisão de arquitetura e otimização",
+      price: "R$ 300/hora",
+      whatsappMessage: "Olá! Gostaria de saber mais sobre o serviço de Consultoria Técnica (R$ 300/hora).",
     },
     {
       name: "Code Review",
-      description: "Security & performance audit",
-      price: "$80/hour",
+      description: "Auditoria de segurança e performance",
+      price: "R$ 250/hora",
+      whatsappMessage: "Olá! Gostaria de saber mais sobre o serviço de Code Review (R$ 250/hora).",
     },
     {
-      name: "Maintenance & Support",
-      description: "Ongoing updates & bug fixes",
-      price: "From $500/month",
+      name: "Manutenção e Suporte",
+      description: "Atualizações contínuas e correções de bugs",
+      price: "R$ 1.500/mês",
+      whatsappMessage: "Olá! Gostaria de saber mais sobre o serviço de Manutenção e Suporte (R$ 1.500/mês).",
     },
   ];
 
   const workflowSteps = [
-    { number: "01", title: "Discovery", duration: "1-3 days" },
-    { number: "02", title: "Proposal & Quote", duration: "1-2 days" },
-    { number: "03", title: "Planning & Design", duration: "3-7 days" },
-    { number: "04", title: "Development", duration: "Varies" },
-    { number: "05", title: "Testing & QA", duration: "3-5 days" },
-    { number: "06", title: "Deployment", duration: "1-2 days" },
-    { number: "07", title: "Support", duration: "Ongoing" },
+    { number: "01", title: "Descoberta", duration: "1-3 dias" },
+    { number: "02", title: "Proposta e Orçamento", duration: "1-2 dias" },
+    { number: "03", title: "Planejamento e Design", duration: "3-7 dias" },
+    { number: "04", title: "Desenvolvimento", duration: "Variável" },
+    { number: "05", title: "Testes e QA", duration: "3-5 dias" },
+    { number: "06", title: "Deploy", duration: "1-2 dias" },
+    { number: "07", title: "Suporte", duration: "Contínuo" },
   ];
 
   const testimonials = [
     {
-      quote: "Davi delivered our booking system ahead of schedule. Excellent work!",
+      quote: "Davi entregou nosso sistema de agendamento antes do prazo. Trabalho excelente!",
       author: "Dr. Silva",
-      company: "Clinic Health",
+      company: "Clínica Health",
       rating: 5,
     },
     {
-      quote: "The AI chatbot increased our customer engagement by 300%.",
+      quote: "O chatbot de IA aumentou nosso engajamento de clientes em 300%.",
       author: "Maria Costa",
-      company: "E-commerce Store",
+      company: "Loja E-commerce",
       rating: 5,
     },
     {
-      quote: "Professional, responsive, and highly skilled. Highly recommend!",
+      quote: "Profissional, responsivo e altamente qualificado. Altamente recomendado!",
       author: "João Santos",
       company: "Tech Startup",
       rating: 5,
@@ -125,25 +138,23 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-
-      <section className="pt-32 pb-20">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Services & <span className="text-gradient-primary">Pricing</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+              Serviços & <span className="text-gradient-primary">Preços</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Tailored solutions for your needs. Transparent pricing, exceptional
-              results.
+            <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              Soluções personalizadas para suas necessidades. Preços transparentes, resultados excepcionais.
             </p>
           </motion.div>
 
           {/* Main Services */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-12 md:mb-20">
             {mainServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -152,55 +163,55 @@ const Services = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card
-                  className={`p-8 glass border-border hover:border-primary transition-all h-full flex flex-col ${
-                    service.featured ? "border-primary shadow-lg scale-105" : ""
+                  className={`p-4 md:p-8 glass border-border hover:border-primary transition-all h-full flex flex-col ${
+                    service.featured ? "border-primary shadow-lg md:scale-105" : ""
                   }`}
                 >
                   {service.featured && (
-                    <Badge className="mb-4 bg-gradient-primary border-0 w-fit">
+                    <Badge className="mb-3 md:mb-4 bg-gradient-primary border-0 w-fit text-xs md:text-sm">
                       <Star className="w-3 h-3 mr-1" />
-                      Most Popular
+                      Mais Popular
                     </Badge>
                   )}
                   <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6`}
+                    className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 md:mb-6`}
                   >
-                    <service.icon className="w-8 h-8 text-white" />
+                    <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <h3 className="text-lg md:text-2xl font-bold mb-2">{service.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">{service.description}</p>
 
-                  <div className="mb-6 flex-1">
-                    <p className="text-sm font-semibold mb-3 text-primary">Includes:</p>
-                    <ul className="space-y-2">
+                  <div className="mb-4 md:mb-6 flex-1">
+                    <p className="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-primary">Inclui:</p>
+                    <ul className="space-y-1.5 md:space-y-2">
                       {service.includes.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <Check className="w-4 h-4 text-neon-green shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm">
+                          <Check className="w-3 h-3 md:w-4 md:h-4 text-neon-green shrink-0 mt-0.5" />
                           <span className="text-muted-foreground">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="space-y-4 pt-6 border-t border-border">
+                  <div className="space-y-3 md:space-y-4 pt-4 md:pt-6 border-t border-border">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Price</span>
-                      <span className="text-xl font-bold">{service.price}</span>
+                      <span className="text-xs md:text-sm text-muted-foreground">Preço</span>
+                      <span className="text-lg md:text-xl font-bold">{service.price}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Timeline</span>
-                      <span className="font-medium">{service.timeline}</span>
+                      <span className="text-xs md:text-sm text-muted-foreground">Prazo</span>
+                      <span className="text-sm md:text-base font-medium">{service.timeline}</span>
                     </div>
                     <Button
                       className={
                         service.featured
-                          ? "w-full bg-gradient-primary border-0"
-                          : "w-full"
+                          ? "w-full bg-gradient-primary border-0 text-sm md:text-base"
+                          : "w-full text-sm md:text-base"
                       }
                       variant={service.featured ? "default" : "outline"}
                       asChild
                     >
-                      <Link to="/contact">Get Started</Link>
+                      <Link to="/contact">Começar</Link>
                     </Button>
                   </div>
                 </Card>
@@ -213,25 +224,26 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-20"
+            className="mb-12 md:mb-20"
           >
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Add-on <span className="text-gradient-secondary">Services</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+              Serviços <span className="text-gradient-secondary">Adicionais</span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {addOnServices.map((service, index) => (
                 <Card
                   key={index}
-                  className="p-6 glass border-border hover:border-primary transition-all"
+                  className="p-4 md:p-6 glass border-border hover:border-primary transition-all cursor-pointer"
+                  onClick={() => sendToWhatsApp(service.whatsappMessage)}
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold">{service.name}</h3>
-                    <Zap className="w-5 h-5 text-neon-purple shrink-0" />
+                    <h3 className="font-bold text-sm md:text-base">{service.name}</h3>
+                    <Zap className="w-4 h-4 md:w-5 md:h-5 text-neon-purple shrink-0" />
                   </div>
-                  <p className="text-sm text-muted-foreground mb-3">
+                  <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
                     {service.description}
                   </p>
-                  <p className="text-primary font-semibold">{service.price}</p>
+                  <p className="text-primary font-semibold text-sm md:text-base">{service.price}</p>
                 </Card>
               ))}
             </div>
@@ -242,21 +254,21 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-20"
+            className="mb-12 md:mb-20"
           >
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Work <span className="text-gradient-primary">Process</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+              Processo de <span className="text-gradient-primary">Trabalho</span>
             </h2>
-            <div className="grid md:grid-cols-7 gap-4">
+            <div className="grid grid-cols-3 md:grid-cols-7 gap-2 md:gap-4">
               {workflowSteps.map((step, index) => (
                 <Card
                   key={index}
-                  className="p-6 glass border-border hover:border-primary transition-all text-center"
+                  className="p-3 md:p-6 glass border-border hover:border-primary transition-all text-center"
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center mx-auto mb-3 text-xl font-bold">
+                  <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-gradient-primary flex items-center justify-center mx-auto mb-2 md:mb-3 text-sm md:text-xl font-bold">
                     {step.number}
                   </div>
-                  <h3 className="font-bold mb-1 text-sm">{step.title}</h3>
+                  <h3 className="font-bold mb-1 text-xs md:text-sm">{step.title}</h3>
                   <p className="text-xs text-muted-foreground">{step.duration}</p>
                 </Card>
               ))}
@@ -268,29 +280,29 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-20"
+            className="mb-12 md:mb-20"
           >
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Client <span className="text-gradient-secondary">Testimonials</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+              Depoimentos de <span className="text-gradient-secondary">Clientes</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {testimonials.map((testimonial, index) => (
                 <Card
                   key={index}
-                  className="p-6 glass border-border hover:border-primary transition-all"
+                  className="p-4 md:p-6 glass border-border hover:border-primary transition-all"
                 >
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3 md:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-4 h-4 fill-neon-green text-neon-green"
+                        className="w-3 h-3 md:w-4 md:h-4 fill-neon-green text-neon-green"
                       />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4">"{testimonial.quote}"</p>
+                  <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">"{testimonial.quote}"</p>
                   <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="font-semibold text-sm md:text-base">{testimonial.author}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       {testimonial.company}
                     </p>
                   </div>
@@ -300,18 +312,18 @@ const Services = () => {
           </motion.div>
 
           {/* Final CTA */}
-          <Card className="p-12 text-center bg-gradient-to-br from-electric-blue/10 via-neon-purple/10 to-vibrant-cyan/10 border-primary/30">
-            <Shield className="w-16 h-16 mx-auto mb-6 text-primary" />
-            <h2 className="text-4xl font-bold mb-4">Ready to Start Your Project?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Get a free consultation and custom quote. No commitment required.
+          <Card className="p-6 md:p-12 text-center bg-gradient-to-br from-electric-blue/10 via-neon-purple/10 to-vibrant-cyan/10 border-primary/30">
+            <Shield className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 text-primary" />
+            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Pronto para Iniciar Seu Projeto?</h2>
+            <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-4">
+              Obtenha uma consulta gratuita e orçamento personalizado. Sem compromisso.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-primary border-0" asChild>
-                <Link to="/contact">Request Quote</Link>
+            <div className="flex flex-wrap gap-3 md:gap-4 justify-center">
+              <Button size="lg" className="bg-gradient-primary border-0 text-sm md:text-base" asChild>
+                <Link to="/contact">Solicitar Orçamento</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/portfolio">View Past Work</Link>
+              <Button size="lg" variant="outline" className="text-sm md:text-base" asChild>
+                <Link to="/portfolio">Ver Trabalhos Anteriores</Link>
               </Button>
             </div>
           </Card>
