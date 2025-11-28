@@ -304,7 +304,7 @@ const Portfolio = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute top-1.5 sm:top-2 md:top-4 left-1.5 sm:left-2 md:left-4 right-1.5 sm:right-2 md:right-4 flex justify-between items-start gap-1.5 sm:gap-2">
                       {project.company && (
-                        <Badge className="bg-background/80 backdrop-blur-sm text-[9px] sm:text-[10px] md:text-xs">
+                        <Badge className="bg-background/80 backdrop-blur-sm text-white text-[9px] sm:text-[10px] md:text-xs">
                           {project.company}
                         </Badge>
                       )}
