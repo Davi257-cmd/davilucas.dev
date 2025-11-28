@@ -58,7 +58,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-2 sm:mb-3 md:mb-4 text-sm sm:text-base">Conecte-se</h3>
             <div className="flex gap-2 sm:gap-3">
               <a
-                href="https://github.com"
+                href="https://github.com/Davi257-cmd"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-muted hover:bg-primary transition-colors flex items-center justify-center group"
@@ -66,7 +66,7 @@ const Footer = () => {
                 <Github className="w-4 h-4 sm:w-5 sm:h-5 group-hover:text-primary-foreground" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/davi-lucas-049b48269/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-muted hover:bg-primary transition-colors flex items-center justify-center group"
@@ -74,7 +74,7 @@ const Footer = () => {
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 group-hover:text-primary-foreground" />
               </a>
               <a
-                href="mailto:contact@davilucas.dev"
+                href="mailto:davillucas@gmail.com"
                 className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-muted hover:bg-primary transition-colors flex items-center justify-center group"
               >
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 group-hover:text-primary-foreground" />

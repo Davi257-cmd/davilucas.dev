@@ -72,16 +72,19 @@ const InstagramCarousel = () => {
             }}
           >
             {duplicatedPosts.map((post, index) => (
-              <div
+              <a
                 key={index}
-                className="flex-shrink-0 w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 rounded-lg overflow-hidden glass border border-border hover:border-primary transition-all group"
+                href="https://www.instagram.com/davilucas.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 rounded-lg overflow-hidden glass border border-border hover:border-primary transition-all group cursor-pointer"
               >
                 <img
                   src={post}
                   alt={`Instagram post ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>

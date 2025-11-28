@@ -396,7 +396,7 @@ ${message}`;
                 <h3 className="font-bold text-base md:text-lg mb-3 md:mb-4">Informações de Contato</h3>
                 <div className="space-y-3 md:space-y-4">
                   <a
-                    href="mailto:contact@davilucas.dev"
+                    href="mailto:davillucas@gmail.com"
                     className="flex items-center gap-2 md:gap-3 text-xs md:text-sm hover:text-primary transition-colors"
                   >
                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -404,12 +404,12 @@ ${message}`;
                     </div>
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground text-xs md:text-sm">contact@davilucas.dev</p>
+                      <p className="text-muted-foreground text-xs md:text-sm">davillucas@gmail.com</p>
                     </div>
                   </a>
 
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/davi-lucas-049b48269/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 md:gap-3 text-xs md:text-sm hover:text-primary transition-colors"
@@ -424,7 +424,7 @@ ${message}`;
                   </a>
 
                   <a
-                    href="https://github.com"
+                    href="https://github.com/Davi257-cmd"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 md:gap-3 text-xs md:text-sm hover:text-primary transition-colors"

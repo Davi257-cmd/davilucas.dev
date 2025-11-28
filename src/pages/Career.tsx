@@ -133,14 +133,14 @@ const Career = () => {
                     <p className="text-sm text-muted-foreground mb-2">Contato</p>
                     <div className="space-y-2">
                       <a
-                        href="mailto:contact@davilucas.dev"
+                        href="mailto:davillucas@gmail.com"
                         className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
                       >
                         <Mail className="w-4 h-4" />
-                        contact@davilucas.dev
+                        davillucas@gmail.com
                       </a>
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/davi-lucas-049b48269/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
@@ -149,7 +149,7 @@ const Career = () => {
                         Perfil LinkedIn
                       </a>
                       <a
-                        href="https://github.com"
+                        href="https://github.com/Davi257-cmd"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
@@ -297,7 +297,7 @@ const Career = () => {
                   </Button>
                   <Button size="lg" variant="outline" className="w-full" asChild>
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/davi-lucas-049b48269/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
