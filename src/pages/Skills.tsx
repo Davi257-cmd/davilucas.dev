@@ -82,17 +82,17 @@ const Skills = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-16"
+            className="text-center mb-6 sm:mb-8 md:mb-16"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-1.5 sm:mb-2 md:mb-4 leading-tight">
               Tecnologias & <span className="text-gradient-primary">Habilidades</span>
             </h1>
-            <p className="text-sm md:text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
               Ferramentas e tecnologias que domino e utilizo.
             </p>
           </motion.div>
@@ -107,9 +107,9 @@ const Skills = () => {
                 transition={{ delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-4 md:p-8 glass border-border">
-                  <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">{category.title}</h2>
-                  <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+                <Card className="p-3 sm:p-4 md:p-6 lg:p-8 glass border-border">
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">{category.title}</h2>
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     {category.skills.map((skill, skillIndex) => (
                       <div key={skillIndex} className="space-y-1.5 md:space-y-2">
                         <div className="flex justify-between items-center mb-1 md:mb-2 flex-wrap gap-1">
@@ -141,10 +141,10 @@ const Skills = () => {
             viewport={{ once: true }}
             className="mb-12 md:mb-20"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-8 leading-tight">
               Ferramentas & <span className="text-gradient-primary">Plataformas</span>
             </h2>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3">
               {tools.map((tool, index) => (
                 <motion.div
                   key={index}
@@ -155,7 +155,7 @@ const Skills = () => {
                 >
                   <Badge
                     variant="outline"
-                    className="px-3 py-1.5 md:px-6 md:py-3 text-xs md:text-base border-primary/30 hover:border-primary hover:bg-primary/10 transition-all cursor-default"
+                    className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-6 md:py-3 text-[10px] sm:text-xs md:text-sm lg:text-base border-primary/30 hover:border-primary hover:bg-primary/10 transition-all cursor-default"
                   >
                     {tool}
                   </Badge>
@@ -170,10 +170,10 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-8 leading-tight">
               Categorias de <span className="text-gradient-secondary">Expertise</span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 lg:gap-6">
               {[
                 { title: "Frontend", techs: ["React", "JavaScript", "TypeScript", "Angular"] },
                 { title: "Backend", techs: ["Node.js", "NestJS", "PHP", "Python", "Java", "Spring Boot"] },
@@ -187,12 +187,12 @@ const Skills = () => {
               ].map((category, index) => (
                 <Card
                   key={index}
-                  className="p-4 md:p-6 glass border-border hover:border-primary transition-all"
+                  className="p-2.5 sm:p-3 md:p-4 lg:p-6 glass border-border hover:border-primary transition-all"
                 >
-                  <h3 className="font-bold mb-2 md:mb-3 text-sm md:text-base">{category.title}</h3>
-                  <div className="flex flex-wrap gap-1.5 md:gap-2">
+                  <h3 className="font-bold mb-1.5 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">{category.title}</h3>
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
                     {category.techs.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                      <Badge key={tech} variant="secondary" className="text-[9px] sm:text-[10px] md:text-xs">
                         {tech}
                       </Badge>
                     ))}

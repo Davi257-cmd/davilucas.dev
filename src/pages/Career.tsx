@@ -75,17 +75,17 @@ const Career = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-16"
+            className="text-center mb-6 sm:mb-8 md:mb-16"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-1.5 sm:mb-2 md:mb-4 leading-tight">
               Perfil <span className="text-gradient-primary">Profissional</span>
             </h1>
-            <p className="text-sm md:text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
               Conectando com empresas e recrutadores. Desenvolvedor full-stack sênior pronto para o próximo desafio.
             </p>
           </motion.div>
@@ -97,11 +97,11 @@ const Career = () => {
             transition={{ delay: 0.2 }}
             className="mb-16"
           >
-            <Card className="p-4 md:p-8 glass border-primary/30">
-              <div className="grid md:grid-cols-3 gap-4 md:gap-8">
-                <div className="md:col-span-2 space-y-3 md:space-y-4">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-primary shrink-0">
+            <Card className="p-3 sm:p-4 md:p-6 lg:p-8 glass border-primary/30">
+              <div className="grid md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
+                <div className="md:col-span-2 space-y-2 sm:space-y-3 md:space-y-4">
+                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-primary shrink-0">
                       <img
                         src={profileImage}
                         alt="Davi Lucas"
@@ -109,13 +109,13 @@ const Career = () => {
                       />
                     </div>
                     <div>
-                      <h2 className="text-2xl md:text-3xl font-bold mb-1 md:mb-2">Davi Lucas</h2>
-                      <p className="text-lg md:text-xl text-gradient-primary">
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-0.5 sm:mb-1 md:mb-2 leading-tight">Davi Lucas</h2>
+                      <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gradient-primary leading-tight">
                         Desenvolvedor Full-Stack & Especialista em IA
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm md:text-base text-muted-foreground">
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
                     Desenvolvedor sênior com 5+ anos construindo aplicações web e mobile escaláveis. Especializado em React, Python e soluções IA/ML. Histórico comprovado com 100+ projetos bem-sucedidos entregues.
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -201,7 +201,7 @@ const Career = () => {
             viewport={{ once: true }}
             className="mb-8 md:mb-16"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-8 leading-tight">
               Linha do Tempo <span className="text-gradient-secondary">Profissional</span>
             </h2>
             <div className="space-y-4 md:space-y-6">

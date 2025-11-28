@@ -139,17 +139,17 @@ ${message}`;
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-16"
+            className="text-center mb-6 sm:mb-8 md:mb-16"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-1.5 sm:mb-2 md:mb-4 leading-tight">
               Vamos <span className="text-gradient-primary">Conectar</span>
             </h1>
-            <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
               Seja você um cliente com um projeto ou um recrutador com uma oportunidade, adoraria ouvir de você.
             </p>
           </motion.div>
@@ -199,6 +199,8 @@ ${message}`;
                               <SelectValue placeholder="Selecione o tipo" />
                             </SelectTrigger>
                             <SelectContent>
+                              <SelectItem value="landing-page">Landing Page</SelectItem>
+                              <SelectItem value="site">Site</SelectItem>
                               <SelectItem value="web">Aplicação Web</SelectItem>
                               <SelectItem value="mobile">App Mobile</SelectItem>
                               <SelectItem value="ai">Solução IA/ML</SelectItem>
@@ -215,6 +217,8 @@ ${message}`;
                               <SelectValue placeholder="Selecione a faixa" />
                             </SelectTrigger>
                             <SelectContent>
+                              <SelectItem value="800-1.5k">R$ 800 - R$ 1.5k</SelectItem>
+                              <SelectItem value="1.5k-5k">R$ 1.5k - R$ 5k</SelectItem>
                               <SelectItem value="5k-10k">R$ 5k - R$ 10k</SelectItem>
                               <SelectItem value="10k-25k">R$ 10k - R$ 25k</SelectItem>
                               <SelectItem value="25k-50k">R$ 25k - R$ 50k</SelectItem>
@@ -468,17 +472,17 @@ ${message}`;
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-8 leading-tight">
               Perguntas <span className="text-gradient-primary">Frequentes</span>
             </h2>
-            <Card className="p-4 md:p-8 glass border-border max-w-3xl mx-auto">
+            <Card className="p-3 sm:p-4 md:p-6 lg:p-8 glass border-border max-w-3xl mx-auto">
               <Accordion type="single" collapsible>
                 {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left text-sm md:text-base">
+                    <AccordionTrigger className="text-left text-xs sm:text-sm md:text-base leading-relaxed">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground text-sm md:text-base">
+                    <AccordionContent className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

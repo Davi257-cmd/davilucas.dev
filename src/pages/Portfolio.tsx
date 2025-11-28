@@ -253,29 +253,29 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-12"
+            className="text-center mb-6 sm:mb-8 md:mb-12"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-1.5 sm:mb-2 md:mb-4 leading-tight">
               Meus <span className="text-gradient-primary">Projetos</span>
             </h1>
-            <p className="text-sm md:text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
               Uma seleção dos meus trabalhos mais recentes e significativos, demonstrando diferentes tecnologias e abordagens de desenvolvimento.
             </p>
           </motion.div>
 
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12">
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3 mb-6 sm:mb-8 md:mb-12">
             {filters.map((filter) => (
               <Button
                 key={filter}
                 variant={activeFilter === filter ? "default" : "outline"}
                 onClick={() => setActiveFilter(filter)}
-                className={`text-xs md:text-sm ${
+                className={`text-[10px] sm:text-xs md:text-sm h-7 sm:h-8 md:h-9 px-2 sm:px-3 md:px-4 ${
                   activeFilter === filter ? "bg-gradient-primary border-0" : ""
                 }`}
               >
@@ -285,7 +285,7 @@ const Portfolio = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -295,22 +295,22 @@ const Portfolio = () => {
                 layout
               >
                 <Card className="overflow-hidden glass border-border hover:border-primary transition-all group h-full flex flex-col">
-                  <div className="relative h-40 md:h-48 overflow-hidden">
+                  <div className="relative h-32 sm:h-36 md:h-40 lg:h-48 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute top-2 md:top-4 left-2 md:left-4 right-2 md:right-4 flex justify-between items-start gap-2">
+                    <div className="absolute top-1.5 sm:top-2 md:top-4 left-1.5 sm:left-2 md:left-4 right-1.5 sm:right-2 md:right-4 flex justify-between items-start gap-1.5 sm:gap-2">
                       {project.company && (
-                        <Badge className="bg-background/80 backdrop-blur-sm text-xs">
+                        <Badge className="bg-background/80 backdrop-blur-sm text-[9px] sm:text-[10px] md:text-xs">
                           {project.company}
                         </Badge>
                       )}
                       <Badge
                         variant="outline"
-                        className={`bg-background/80 backdrop-blur-sm border-white/20 text-xs ${
+                        className={`bg-background/80 backdrop-blur-sm border-white/20 text-[9px] sm:text-[10px] md:text-xs ${
                           project.status === "Em Desenvolvimento"
                             ? "border-yellow-500 text-yellow-500"
                             : "border-green-500 text-green-500"
@@ -319,11 +319,11 @@ const Portfolio = () => {
                         {project.status}
                       </Badge>
                     </div>
-                    <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-1.5 sm:bottom-2 md:bottom-4 right-1.5 sm:right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Button
                         size="sm"
                         variant="secondary"
-                        className="bg-background/80 backdrop-blur-sm hover:bg-background/90 text-xs"
+                        className="bg-background/80 backdrop-blur-sm hover:bg-background/90 text-[9px] sm:text-[10px] md:text-xs h-6 sm:h-7 md:h-8 px-2 sm:px-3"
                         asChild
                       >
                         <a
@@ -331,23 +331,23 @@ const Portfolio = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
-                          <span className="hidden md:inline">Visitar</span>
+                          <ExternalLink className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 mr-0.5 sm:mr-1 md:mr-2" />
+                          <span className="hidden sm:inline">Visitar</span>
                         </a>
                       </Button>
                     </div>
                   </div>
-                  <div className="p-4 md:p-6 flex-1 flex flex-col">
-                    <Badge variant="outline" className="w-fit mb-2 md:mb-3 text-xs">
+                  <div className="p-3 sm:p-4 md:p-6 flex-1 flex flex-col">
+                    <Badge variant="outline" className="w-fit mb-1.5 sm:mb-2 md:mb-3 text-[9px] sm:text-[10px] md:text-xs">
                       {project.category}
                     </Badge>
-                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4 flex-1">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-1.5 md:mb-2 leading-tight">{project.title}</h3>
+                    <p className="text-muted-foreground text-[10px] sm:text-xs md:text-sm mb-2 sm:mb-3 md:mb-4 flex-1 leading-snug">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-1.5 md:gap-2">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
                       {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
+                        <Badge key={tag} variant="secondary" className="text-[9px] sm:text-[10px] md:text-xs">
                           {tag}
                         </Badge>
                       ))}

@@ -138,23 +138,23 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-16"
+            className="text-center mb-6 sm:mb-8 md:mb-16"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-1.5 sm:mb-2 md:mb-4 leading-tight">
               Serviços & <span className="text-gradient-primary">Preços</span>
             </h1>
-            <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
               Soluções personalizadas para suas necessidades. Preços transparentes, resultados excepcionais.
             </p>
           </motion.div>
 
           {/* Main Services */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-12 md:mb-20">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-8 mb-8 sm:mb-12 md:mb-20">
             {mainServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -163,50 +163,50 @@ const Services = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card
-                  className={`p-4 md:p-8 glass border-border hover:border-primary transition-all h-full flex flex-col ${
-                    service.featured ? "border-primary shadow-lg md:scale-105" : ""
+                  className={`p-3 sm:p-4 md:p-6 lg:p-8 glass border-border hover:border-primary transition-all h-full flex flex-col ${
+                    service.featured ? "border-primary shadow-lg sm:scale-105" : ""
                   }`}
                 >
                   {service.featured && (
-                    <Badge className="mb-3 md:mb-4 bg-gradient-primary border-0 w-fit text-xs md:text-sm">
-                      <Star className="w-3 h-3 mr-1" />
+                    <Badge className="mb-2 sm:mb-3 md:mb-4 bg-gradient-primary border-0 w-fit text-[10px] sm:text-xs md:text-sm">
+                      <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-0.5 sm:mr-1" />
                       Mais Popular
                     </Badge>
                   )}
                   <div
-                    className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 md:mb-6`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-3 sm:mb-4 md:mb-6`}
                   >
-                    <service.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    <service.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" />
                   </div>
-                  <h3 className="text-lg md:text-2xl font-bold mb-2">{service.title}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">{service.description}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1.5 sm:mb-2 leading-tight">{service.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 sm:mb-4 md:mb-6 leading-relaxed">{service.description}</p>
 
-                  <div className="mb-4 md:mb-6 flex-1">
-                    <p className="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-primary">Inclui:</p>
-                    <ul className="space-y-1.5 md:space-y-2">
+                  <div className="mb-3 sm:mb-4 md:mb-6 flex-1">
+                    <p className="text-[10px] sm:text-xs md:text-sm font-semibold mb-1.5 sm:mb-2 md:mb-3 text-primary">Inclui:</p>
+                    <ul className="space-y-1 sm:space-y-1.5 md:space-y-2">
                       {service.includes.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs md:text-sm">
-                          <Check className="w-3 h-3 md:w-4 md:h-4 text-neon-green shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{item}</span>
+                        <li key={i} className="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm">
+                          <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-neon-green shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground leading-snug">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="space-y-3 md:space-y-4 pt-4 md:pt-6 border-t border-border">
+                  <div className="space-y-2 sm:space-y-3 md:space-y-4 pt-3 sm:pt-4 md:pt-6 border-t border-border">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs md:text-sm text-muted-foreground">Preço</span>
-                      <span className="text-lg md:text-xl font-bold">{service.price}</span>
+                      <span className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Preço</span>
+                      <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">{service.price}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-xs md:text-sm text-muted-foreground">Prazo</span>
-                      <span className="text-sm md:text-base font-medium">{service.timeline}</span>
+                      <span className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Prazo</span>
+                      <span className="text-xs sm:text-sm md:text-base font-medium">{service.timeline}</span>
                     </div>
                     <Button
                       className={
                         service.featured
-                          ? "w-full bg-gradient-primary border-0 text-sm md:text-base"
-                          : "w-full text-sm md:text-base"
+                          ? "w-full bg-gradient-primary border-0 text-xs sm:text-sm md:text-base h-9 sm:h-10 md:h-11"
+                          : "w-full text-xs sm:text-sm md:text-base h-9 sm:h-10 md:h-11"
                       }
                       variant={service.featured ? "default" : "outline"}
                       asChild
@@ -226,24 +226,24 @@ const Services = () => {
             viewport={{ once: true }}
             className="mb-12 md:mb-20"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 md:mb-8 leading-tight">
               Serviços <span className="text-gradient-secondary">Adicionais</span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 md:gap-4">
               {addOnServices.map((service, index) => (
                 <Card
                   key={index}
-                  className="p-4 md:p-6 glass border-border hover:border-primary transition-all cursor-pointer"
+                  className="p-3 sm:p-4 md:p-6 glass border-border hover:border-primary transition-all cursor-pointer"
                   onClick={() => sendToWhatsApp(service.whatsappMessage)}
                 >
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-sm md:text-base">{service.name}</h3>
-                    <Zap className="w-4 h-4 md:w-5 md:h-5 text-neon-purple shrink-0" />
+                  <div className="flex items-start justify-between mb-1.5 sm:mb-2">
+                    <h3 className="font-bold text-xs sm:text-sm md:text-base leading-tight">{service.name}</h3>
+                    <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-neon-purple shrink-0" />
                   </div>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mb-1.5 sm:mb-2 md:mb-3 leading-snug">
                     {service.description}
                   </p>
-                  <p className="text-primary font-semibold text-sm md:text-base">{service.price}</p>
+                  <p className="text-primary font-semibold text-xs sm:text-sm md:text-base">{service.price}</p>
                 </Card>
               ))}
             </div>
